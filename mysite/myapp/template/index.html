@@ -1,0 +1,46 @@
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        padding: 20px;
+    }
+    header {
+        text-align: center;
+        padding: 10px;
+        background-color: #333;
+        color: #fff;
+    }
+    h3 {
+        color: #333;
+        border-bottom: 1px solid #333;
+        padding: 10px 0;
+    }
+    h4 {
+        color: #777;
+        font-weight: normal;
+    }
+    h5 {
+        color: #999;
+        font-weight: normal;
+    }
+    .game-image {
+        width: 100%;
+        max-width: 300px;
+    }
+</style>
+
+<header>
+    <h1>CATALOGO WEB</h1>
+</header>
+
+{% for i in game %}
+
+<h3>{{i.nombre}} | {{i.plataforma}} | {{i.categoria}}</h2>
+
+<!-- <img class="game-image" src="WOW.jpg" alt="{{i.nombre}}"> -->
+<img src="{{ i.imagen.url }}" width="300px" alt="{{ i.proyecto }}">
+
+<h4>{{i.precio}}$</h4>
+
+<h5>fecha de lanzamiento: {{i.fecha|date:"M d, Y" }}</h5>
+{% endfor %}

@@ -1,0 +1,8 @@
+ python manage.py makemigrations: este comando permite ver los cambios hechos en la base de datos
+ python manage.py makemigrations "aplicacion en cuestion": con este comando podemos saber los cambios que sucederan 
+ en una aplicacion en especifico
+
+ python manage.py migrate: ejecuta los movimientos pre establecidos en el orm de django
+ python manage.py migrate "aplicacion en cuestion": podemos ejecutar el orm de una aplicacion en especifico
+ antes de utilizar este comando, debemos reflejar los cambios en la carpeta "migrations" a traves del comando 
+ "python manage.py makemigrations"
