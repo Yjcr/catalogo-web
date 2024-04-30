@@ -1,0 +1,15 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Iniciar sesión</h2>
+    <form method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      {% if error %}
+      <p style="color: red;">{{ error }}</p>
+      {% endif %}
+      <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+    </form>
+</div>
+{% endblock %}

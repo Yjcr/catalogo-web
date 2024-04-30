@@ -1,3 +1,6 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -35,12 +38,14 @@
 
 {% for i in game %}
 
-<h3>{{i.nombre}} | {{i.plataforma}} | {{i.categoria}}</h2>
+<h3>{{i.nombre}} | {{i.plataforma}} | {{i.categoria}}</h3>
 
 <!-- <img class="game-image" src="WOW.jpg" alt="{{i.nombre}}"> -->
-<img src="{{ i.imagen.url }}" width="300px" alt="{{ i.proyecto }}">
+<img src="{{ i.imagen.url }}" width="300px" alt="{{ i.nombre }}">
 
 <h4>{{i.precio}}$</h4>
 
-<h5>fecha de lanzamiento: {{i.fecha|date:"M d, Y" }}</h5>
+<h5>fecha de lanzamiento: {{i.fecha|date:"d M, Y"}}</h5>
 {% endfor %}
+
+{% endblock %}
