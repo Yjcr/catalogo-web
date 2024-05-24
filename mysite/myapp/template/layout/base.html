@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,44 +7,112 @@
     <title>Catalago web</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="icon" type="image/png" href="{% static 'joystick.png' %}">
+    <style>
+        body{
+            margin: 0;
+        }
+        nav{
+            background: white;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            height: 50px;
+            padding: 0 12px;
+            /* position: fixed; */
+            margin-bottom: 20px;
+            top: 0;
+            position: sticky;
+        }
+        .navbar-right ul, 
+        .navbar-left ul{
+            list-style: none;
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+            height: 30px;
+        }
+        .navbar-right{
+            display: flex;
+        }
+        .navbar-right ul{
+            margin-left: 12px;
+        }
+        .navbar-left ul li a,
+        .navbar-right ul li a{
+            text-decoration: none;
+            color: gray;
+            padding: 8px;
+            border-radius: 8px;
+        }
+        .navbar-right ul li a{
+            margin: 0 12px;
+        }
+        .navbar-left ul li a:hover,
+        .navbar-right ul li a:hover{
+            color: black;
+            border: 1px solid black;
+        }
+        .input{
+            height: 30px;
+            width: 170px;
+            border: 1px solid rgb(194, 194, 194);
+            color: rgb(194, 194, 194);
+            border-radius: 8px;
+        }
+        .input:hover{
+            border: 1px solid black;
+            color: black;
+            cursor: text;
+
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{% url 'home' %}">Home</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
+    <nav>
+        <div class="navbar-left">
+            <ul>
+                <li>
+                    <a href="{% url 'home' %}">Home</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="navbar-right">
+            <ul>
                 {% if user.is_authenticated and user.is_superuser %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'logout' %}">Cerrar sesión</a>
-                    </li>
-                    <li class="nav-item">
-<<<<<<< HEAD
-                        <a class="nav-link" href="/admin/">Panel de control</a>
-=======
-                        <a class="nav-link" href="http://127.0.0.1:8000/admin/">Panel de control</a>
->>>>>>> 591584c98dc4851f0c10419fb270c97b91a70d5b
-                    </li>
+                <li>
+                    <a href="{% url 'logout' %}">Cerrar sesión</a>
+                </li>
+
+                <li>
+                    <a href="/admin/">Panel de control</a>
+                </li>
+
+                <li>
+                    <input type="search" class="input" placeholder="Search">
+                </li>
                 {% elif user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'logout' %}">Cerrar sesión</a>
-                    </li>
+                <li>
+                    <a href="{% url 'logout' %}">Cerrar sesión</a>
+                </li>
+
+                <li>
+                    <input type="search" class="input" placeholder="Search">
+                </li>
                 {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'login' %}">Iniciar sesión</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'register' %}">Registrarse</a>
-                    </li>
+                <li>
+                    <a href="{% url 'login' %}">Iniciar sesión</a>
+                </li>
+
+                <li>
+                    <a href="{% url 'register' %}">Registrarse</a>
+                </li>
                 {% endif %}
             </ul>
         </div>
     </nav>
-    <div class="container mt-4">
-        {% block content %}
-        {% endblock %}
-    </div>
+{% block content %}
+{% endblock %}
+<script src="{% static "global.js" %}"> </script>
 </body>
 </html>

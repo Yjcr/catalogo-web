@@ -49,8 +49,6 @@ def inicio_sesion(request):
             login(request, user)
             return redirect('home')
             
-                # return render(request, 'index_admin.html', {'form':juegos})
-            
             
    
 

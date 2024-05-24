@@ -1,5 +1,4 @@
 {% extends 'layout/base.html' %}
-
 {% block content %}
 <style>
     body {
@@ -8,44 +7,82 @@
         padding: 20px;
     }
     header {
+        width: 100%;
+        padding: 20px;
         text-align: center;
-        padding: 10px;
         background-color: #333;
         color: #fff;
+        border-radius: 8px;
+        transition: 2s;
     }
-    h3 {
-        color: #333;
-        border-bottom: 1px solid #333;
-        padding: 10px;
+    header:hover{
+        background: red;
     }
-    h4 {
-        color: #777;
-        font-weight: normal;
+    .cards-container{
+        margin: 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 340px);
+        gap: 26px;
+        place-content: center;
     }
-    h5 {
-        color: #999;
-        font-weight: normal;
+    .product-cards{
+        background: gray;
+        border-radius: 20px;
+        width: 340px;
+        transition: 2s;
     }
-    .game-image {
-        width: 100%;
-        max-width: 300px;
+    .product-cards:hover{
+        background: black;
     }
+    .product-cards img{
+        width: 340px;
+        height: 300px;
+        border-radius: 20px;
+    }
+    .product-info{
+        /* background: yellow; */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 12px;
+        margin-bottom: 12px;
+    }
+    .product-info button{
+        margin-right: 10px;
+        margin-bottom: 20px;
+        width: 40px;
+        height: 40px;
+        border-radius: 30px;
+        color: green;
+        border: 1px solid green;
+    }
+    .product-info div p{
+        color: whitesmoke;
+        font-size: 14px;
+        margin-top: 0;
+        margin-bottom: 4px;
+        margin-left: 10px;
+    }
+    
 </style>
-
 <header>
     <h1>CATALOGO WEB</h1>
 </header>
-
-{% for i in game %}
-
-<h3>{{i.nombre}} | {{i.plataforma}} | {{i.categoria}}</h3>
-
-<!-- <img class="game-image" src="WOW.jpg" alt="{{i.nombre}}"> -->
-<img src="{{ i.imagen.url }}" width="300px" alt="{{ i.nombre }}">
-
-<h4>{{i.precio}}$</h4>
-
-<h5>fecha de lanzamiento: {{i.fecha|date:"d M, Y"}}</h5>
-{% endfor %}
-
+<section class="main-container">
+    <div class="cards-container">
+        {% for i in game %}
+        <div class="product-cards">
+            <img src="{{ i.imagen.url }}" alt="{{ i.nombre }}">
+            <div class="product-info">
+                <div>
+                    <p>{{i.nombre}} | {{i.plataforma}} | {{i.categoria}}</p>
+                    <p>{{i.precio}}$</p>
+                    <p>fecha de lanzamiento: {{i.fecha|date:"d M, Y"}}</p>
+                </div>
+                <button>buy</button>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
 {% endblock %}
