@@ -1,20 +1,23 @@
 from django.db import models
 
-class categoria(models.Model):
-    categoria = models.CharField(max_length=100)
+class Category(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField(max_length=1000, default='default description')
     
     def __str__(self):
-        return self.categoria
+        return self.name
 
-class videojuego(models.Model):
-    nombre = models.CharField(max_length=200)
-    plataforma = models.CharField(max_length=250)
-    precio = models.CharField(max_length=10)
-    categoria = models.ForeignKey(categoria, on_delete=models.CASCADE)
-    fecha = models.DateField()
-    imagen = models.ImageField(upload_to='galeria', null=False)
+class Videogames(models.Model):
+    name = models.CharField(max_length=200)
+    description = models.TextField(max_length=1000, default='default description')
+    platform = models.CharField(max_length=250)
+    price = models.FloatField()
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    date = models.DateField()
+    picture = models.ImageField(upload_to='galeria', null=False)
+    video = models.FileField(upload_to='galeria', null=False, default='video')
     
     def __str__(self):
-        return self.nombre
+        return self.name
     
 

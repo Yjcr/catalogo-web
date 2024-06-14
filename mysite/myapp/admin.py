@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import videojuego, categoria
+from .models import Videogames, Category
 
 # Register your models here.
-admin.site.register(videojuego)
-admin.site.register(categoria)
+admin.site.register(Videogames)
+admin.site.register(Category)

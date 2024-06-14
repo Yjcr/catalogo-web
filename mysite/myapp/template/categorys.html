@@ -1,0 +1,20 @@
+{% extends 'layout/base.html' %}
+{% block content %}
+<style>
+
+</style>
+{%  for i in game %}
+<div class="product-cards">
+    <img src="{{ i.picture.url }}" alt="{{ i.nombre }}">
+    <div class="product-info">
+        <div>
+            <p>{{i.name}} | {{i.platform}} | {{i.category}}</p>
+            <p>{{i.price}}$</p>
+            <p>fecha de lanzamiento: {{i.date|date:"d M, Y"}}</p>
+        </div>
+        <button>
+            <!-- <img src="{% static 'joystick.png'%}" alt=""> -->
+        </button>.
+    </div>
+{% endfor %}
+{% endblock content %}

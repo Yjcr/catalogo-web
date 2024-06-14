@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import videojuego
+from .models import Videogames, Category
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
@@ -7,8 +7,12 @@ from django.db import IntegrityError
 # Create your views here.
 
 def mostrar(request):
-    juegos = videojuego.objects.all()
+    juegos = Videogames.objects.all()
     return render(request, 'index.html', {'game':juegos} )
+def categorias(request):
+    categorias = Category.objects.all()
+    # juegos = Videogames.GET.get('categoria')
+    return render(request, 'base.html', {'categorias':categorias} )
 
 def registro(request):
     if request.method == 'GET':

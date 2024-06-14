@@ -22,6 +22,8 @@
             margin-bottom: 20px;
             top: 0;
             position: sticky;
+            border: 2px solid red;
+            border-radius: 10px;
         }
         .navbar-right ul, 
         .navbar-left ul{
@@ -74,6 +76,19 @@
                 <li>
                     <a href="{% url 'home' %}">Home</a>
                 </li>
+
+                <li>
+                    <select>
+                      {% if categorias %}
+                        <option value="">categoria...</option>
+                        {% for i in categorias %}
+                        <option value="{{ i.id }}">{{ i.name }}</option>
+                        {% endfor %}
+                      {% else %}
+                        <option value="">no hay categorias</option>
+                      {% endif %}
+                    </select>
+                </li>
             </ul>
         </div>
 
@@ -87,17 +102,9 @@
                 <li>
                     <a href="/admin/">Panel de control</a>
                 </li>
-
-                <li>
-                    <input type="search" class="input" placeholder="Search">
-                </li>
                 {% elif user.is_authenticated %}
                 <li>
                     <a href="{% url 'logout' %}">Cerrar sesión</a>
-                </li>
-
-                <li>
-                    <input type="search" class="input" placeholder="Search">
                 </li>
                 {% else %}
                 <li>
@@ -108,6 +115,9 @@
                     <a href="{% url 'register' %}">Registrarse</a>
                 </li>
                 {% endif %}
+                <li>
+                    <input type="search" class="input" placeholder="Search">
+                </li>
             </ul>
         </div>
     </nav>
