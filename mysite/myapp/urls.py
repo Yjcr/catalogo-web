@@ -7,6 +7,5 @@ urlpatterns = [
     path('cerra_sesion', views.cerrar_sesion, name = 'logout'),
     path('inicio_sesion', views.inicio_sesion, name = 'login'),
     path('categoria/<int:categoria_id>/', views.videojuegos_por_categorias, name='categorys'),
-    path('detalles/<int:game_id>/', views.detalles, name='details'),
-    path('respuesta/<str:respuesta>/', views.busqueda, name='search')
+    path('detalles/<int:game_id>/', views.detalles, name='details')
 ]

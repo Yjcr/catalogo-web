@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalago web</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="icon" type="image/png" href="{% static 'joystick.png' %}">
+    <style>
+        body{
+            margin: 0;
+        }
+        nav{
+            background: white;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            /* height: 50px; */
+            padding: 0 12px;
+            /* position: fixed; */
+            margin-bottom: 20px;
+            top: 0;
+            position: sticky;
+            border: 2px solid red;
+            border-radius: 10px;
+        }
+        .navbar-right ul, 
+        .navbar-left ul{
+            list-style: none;
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+            height: 30px;
+        }
+        .navbar-right{
+            display: flex;
+        }
+        .navbar-right ul{
+            margin-left: 12px;
+        }
+        .navbar-left ul li a,
+        .navbar-right ul li a{
+            text-decoration: none;
+            color: gray;
+            padding: 8px;
+            border-radius: 8px;
+        }
+        .navbar-right ul li a{
+            margin: 0 12px;
+        }
+        .navbar-left ul li a:hover,
+        .navbar-right ul li a:hover{
+            color: black;
+            border: 1px solid black;
+        }
+        .input{
+            height: 30px;
+            width: 170px;
+            border: 1px solid rgb(194, 194, 194);
+            color: rgb(194, 194, 194);
+            border-radius: 8px;
+        }
+        .input:hover{
+            border: 1px solid black;
+            color: black;
+            cursor: text;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="navbar-left">
+            <ul>
+                <li>
+                    <a href="{% url 'home' %}">Home</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+{% block other_content %}
+{% endblock %}
+</body>
+</html>
