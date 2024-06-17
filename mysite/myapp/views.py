@@ -1,19 +1,39 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Videogames, Category
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
+from django.db.models import Q
 # Create your views here.
 
 def mostrar(request):
-    juegos = Videogames.objects.all()
-    return render(request, 'index.html', {'game':juegos} )
-def categorias(request):
+    query = request.GET.get("buscar")
+    juegos = Videogames.objects.all()  
     categorias = Category.objects.all()
-    # juegos = Videogames.GET.get('categoria')
-    return render(request, 'base.html', {'categorias':categorias} )
+    if query:
 
+         juegos = Videogames.objects.filter(
+            Q(name__icontains = query) or 
+            Q(description__icontains = query)
+         ).distinct()
+
+    return render(request, 'index.html', {'game':juegos, 'categoria':categorias} )
+
+def detalles(request, game_id):
+    juegos = get_object_or_404(Videogames, pk=game_id)
+    return render(request, 'details.html', {'games': juegos})
+    
+    
+def videojuegos_por_categorias(request, categoria_id):
+    categoria = get_object_or_404(Category, categoria_id)
+    videojuegos = Videogames.objects.filter(category=categoria)
+    return render(request, 'categorys.html', {'games': videojuegos, 'categoria': categoria} )
+
+def busqueda(request, respuesta):
+    videojuegos = Videogames.objects.filter(name=respuesta)
+    return render(request, 'search.html', {'game':videojuegos})
+    
 def registro(request):
     if request.method == 'GET':
         return render(request, 'sign_in.html', {'form':UserCreationForm})

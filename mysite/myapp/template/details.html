@@ -1,0 +1,20 @@
+{% extends 'layout/base.html' %}
+{% block content %}
+<style>
+</style>
+ <div class="product-cards">
+    <img src="{{ games.picture.url }}" alt="{{ games.nombre }}">
+    <div class="product-info">
+        <div>
+            <p>{{games.name}} | {{games.platform}} | {{games.category}}</p>
+            <p>{{games.price}}$</p>
+            <p>{{games.description}}</p>
+            <p>fecha de lanzamiento: {{games.date|date:"d M, Y"}}</p>
+        </div>
+
+        <button>
+        </button>.
+    </div>
+ </div>
+
+{% endblock content %}

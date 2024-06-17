@@ -1,10 +1,74 @@
 {% extends 'layout/base.html' %}
 {% block content %}
 <style>
-
+  body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        padding: 20px;
+    }
+    header {
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+        background-color: #333;
+        color: #fff;
+        border-radius: 8px;
+        transition: 2s;
+    }
+    header:hover{
+        background: red;
+    }
+    .cards-container{
+        margin: 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 340px);
+        gap: 26px;
+        place-content: center;
+    }
+    .product-cards{
+        background: gray;
+        border-radius: 20px;
+        width: 340px;
+        transition: 2s;
+    }
+    .product-cards:hover{
+        background: black;
+    }
+    .product-cards img{
+        width: 340px;
+        height: 300px;
+        border-radius: 20px;
+    }
+    .product-info{
+        /* background: yellow; */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 12px;
+        margin-bottom: 12px;
+    }
+    .product-info button{
+        margin-right: 10px;
+        margin-bottom: 20px;
+        width: 40px;
+        height: 40px;
+        border-radius: 30px;
+        color: green;
+        border: 1px solid green;
+    }
+    .product-info div p{
+        color: whitesmoke;
+        font-size: 14px;
+        margin-top: 0;
+        margin-bottom: 4px;
+        margin-left: 10px;
+    }
+    .cards-container a{
+        text-decoration: none;
+    }
 </style>
-{%  for i in game %}
-<div class="product-cards">
+{%  for i in games %}
+ <div class="product-cards">
     <img src="{{ i.picture.url }}" alt="{{ i.nombre }}">
     <div class="product-info">
         <div>

@@ -73,23 +73,28 @@
 </header>
 <section class="main-container">
     <div class="cards-container">
+
         {% for i in game %}
-        <a href="{% url 'categorys' %}">
-            <div class="product-cards">
-                <img src="{{ i.picture.url }}" alt="{{ i.nombre }}">
-                <div class="product-info">
-                    <div>
-                        <p>{{i.name}} | {{i.platform}} | {{i.category}}</p>
-                        <p>{{i.price}}$</p>
-                        <p>fecha de lanzamiento: {{i.date|date:"d M, Y"}}</p>
+            <a href="{% url 'details' i.id %}" target="_blank">
+                <div class="product-cards">
+                    <img src="{{ i.picture.url }}" alt="{{ i.nombre }}">
+                    <div class="product-info">
+                        <div>
+                            <p>{{i.name}} | {{i.platform}} | {{i.category}}</p>
+                            <p>{{i.price}}$</p>
+                            <!-- <p>fecha de lanzamiento: {{i.date|date:"d M, Y"}}</p> -->
+                        </div>
+                        <button>
+                             buy
+                        </button>
                     </div>
-                    <button>
-                        buy
-                    </button>
                 </div>
-            </div>
-        </a>
+            </a>
+        {% empty %}
+          <h2>no hay nada</h2>
         {% endfor %}
+   
+   
     </div>
 </section>
 {% endblock %}
