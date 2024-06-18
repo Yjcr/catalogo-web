@@ -1,4 +1,5 @@
 {% extends 'layout/base.html' %}
+{% load static %}
 {% block content %}
 <style>
     body {
@@ -53,8 +54,12 @@
         width: 40px;
         height: 40px;
         border-radius: 30px;
-        color: green;
-        border: 1px solid green;
+        border: 1px solid;
+    }
+    .product-info button img{
+        width: 20px;
+        height: 20px;
+
     }
     .product-info div p{
         color: whitesmoke;
@@ -66,6 +71,11 @@
     .cards-container a{
         text-decoration: none;
     }
+    .carrito{
+        height: 20px;
+        width: 30px;
+    }
+    
 </style>
 <header>
     <!-- <img src="../template/layout/controlero.png" alt="hola"> -->
@@ -84,7 +94,7 @@
                             <p>{{i.price}}$</p>
                         </div>
                         <button>
-                             buy
+                             <img src="{% static 'carritou.png' %}" alt="buy">
                         </button>
                     </div>
                 </div>

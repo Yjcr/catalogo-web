@@ -1,7 +1,8 @@
 {% extends 'layout/base.html' %}
+{% load static %}
 {% block content %}
 <style>
-  body {
+    body {
         font-family: Arial, sans-serif;
         background-color: #f4f4f4;
         padding: 20px;
@@ -53,8 +54,12 @@
         width: 40px;
         height: 40px;
         border-radius: 30px;
-        color: green;
-        border: 1px solid green;
+        border: 1px solid;
+    }
+    .product-info button img{
+        width: 20px;
+        height: 20px;
+
     }
     .product-info div p{
         color: whitesmoke;
@@ -66,19 +71,32 @@
     .cards-container a{
         text-decoration: none;
     }
+    .carrito{
+        height: 20px;
+        width: 30px;
+    }
 </style>
-{%  for i in games %}
- <div class="product-cards">
-    <img src="{{ i.picture.url }}" alt="{{ i.nombre }}">
-    <div class="product-info">
-        <div>
-            <p>{{i.name}} | {{i.platform}} | {{i.category}}</p>
-            <p>{{i.price}}$</p>
-            <p>fecha de lanzamiento: {{i.date|date:"d M, Y"}}</p>
-        </div>
-        <button>
-            <!-- <img src="{% static 'joystick.png'%}" alt=""> -->
-        </button>.
+<section class="main-container">
+    <div class="cards-container">
+
+        {% for i in games %}
+            <a href="{% url 'details' i.id %}" target="_blank">
+                <div class="product-cards">
+                    <img src="{{ i.picture.url }}" alt="{{ i.nombre }}">
+                    <div class="product-info">
+                        <div>
+                            <p>{{i.name}} | {{i.platform}} | {{i.category}}</p>
+                            <p>{{i.price}}$</p>
+                        </div>
+                        <button>
+                             <img src="{% static 'carritou.png' %}" alt="buy">
+                        </button>
+                    </div>
+                </div>
+            </a>
+        {% empty %}
+          <h2>no hay nada</h2>
+        {% endfor %}
     </div>
-{% endfor %}
+</section>
 {% endblock content %}

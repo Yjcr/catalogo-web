@@ -77,13 +77,14 @@
                 </li>
 
                 <li>
-                    <form method="get">
-                        <select name="menu">
-                            {% for i in categoria %}
-                            <option value=""> <a href="{% url 'categorys' i.id %}">{{i.name}}</a></option>
-                            {% endfor%}
-                            </select>
-                    </form>
+                            <button id="menu">
+                                Categorias
+                            </button>   
+                            <div class="menu" id="category-menu" style="display: none;">
+                                {% for i in categoria %}
+                                 <a href="{% url 'categorys' i.id %}">{{i.name}}</a>
+                                {% endfor%}
+                            </div>   
                 </li>
             </ul>
         </div>
