@@ -8,15 +8,7 @@ from django.db.models import Q
 # Create your views here.
 
 def mostrar(request):
-        # query = request.GET.get("buscar")
-        # juegos = Videogames.objects.all()  
-        # categorias = Category.objects.all()
-        # if query:
-        #      juegos = Videogames.objects.filter(
-        #         Q(name__icontains = query) or 
-        #         Q(description__icontains = query)
-        #      ).distinct()
-        return render(request, 'index.html',)
+    return render(request, 'index.html',)
 
 def detalles(request, game_id):
     juegos = get_object_or_404(Videogames, pk=game_id)
@@ -24,10 +16,7 @@ def detalles(request, game_id):
     
     
 def videojuegos_por_categorias(request, categoria_id):
-    # print(Category.objects.get(id=categoria_id))
-    # categoria = get_object_or_404(Category, categoria_id)
     categoria = Category.objects.get(id=categoria_id)
-    # print(Category.objects.get(id=categoria_id))
     videojuegos = Videogames.objects.filter(category=categoria)
     return render(request, 'categorys.html', {'games': videojuegos} )
 

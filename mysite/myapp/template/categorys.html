@@ -94,7 +94,28 @@
 </style>
 <section class="main-container">
     <div class="cards-container">
-        {% if game %}
+        {% if query %}
+        {% for i in game %}
+            <a href="{% url 'details' i.id %}" target="_blank">
+                <div class="product-cards">
+                    <img src="{{ i.picture.url }}" alt="{{ i.nombre }}">
+                    <div class="product-info">
+                        <div>
+                            <p>{{i.name}} | {{i.platform}} | {{i.category}}</p>
+                            <p>{{i.price}}$</p>
+                        </div>
+                        <button>
+                             <img src="{% static 'carritou.png' %}" alt="buy">
+                        </button>
+                    </div>
+                </div>
+            </a>
+        {% empty %}
+            <div class="h2-container">
+                <h2>Actualmente, no disponemos de "{{query}}" bajo esta categoria</h2>
+            </div>
+        {% endfor %}
+        {% else %}
         {% for i in games %}
             <a href="{% url 'details' i.id %}" target="_blank">
                 <div class="product-cards">
@@ -115,9 +136,8 @@
                 <h2>Actualmente, no disponemos de videojuegos que se ajusten a esa categoría específica</h2>
             </div>
         {% endfor %}
-        {% else %}
-         <h2>no se ha encontrado algun resultado para semejante a "{{query}}"</h2> 
         {% endif %}
+
     </div>
 </section>
 {% endblock content %}
