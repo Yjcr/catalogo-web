@@ -1,19 +1,27 @@
 {% extends 'layout/base.html' %}
+{% load static %}
 {% block content %}
 <style>
+    @font-face{
+        font-family: 'fuenteGamer';
+        src: local('fuenteGamer'), url("{% static 'fonts/Abel-Regular.ttf' %}")format('opentype');
+    }
+        
+    body{
+        font-family: 'fuenteGamer';
+    }
 </style>
  <div class="product-cards">
-    <img src="{{ games.picture.url }}" alt="{{ games.nombre }}">
+    <img src="{{ game.picture.url }}" alt="{{ game.nombre }}">
     <div class="product-info">
         <div>
-            <p>{{games.name}} | {{games.platform}} | {{games.category}}</p>
-            <p>{{games.price}}$</p>
-            <p>{{games.description}}</p>
-            <p>fecha de lanzamiento: {{games.date|date:"d M, Y"}}</p>
+            <p>{{game.name}} | {{game.platform}} | {{game.category}}</p>
+            <p>{{game.price}}$</p>
+            <p>{{game.description}}</p>
+            <p>fecha de lanzamiento: {{game.date|date:"d M, Y"}}</p>
         </div>
-
         <button>
-        </button>.
+        </button>
     </div>
  </div>
 

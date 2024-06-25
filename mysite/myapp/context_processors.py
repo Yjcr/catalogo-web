@@ -5,19 +5,21 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
 from django.db.models import Q
+from django.core.paginator import Paginator
 
 def mostrar(request):
     query = request.GET.get("buscar")
     juegos = Videogames.objects.all()  
     categorias = Category.objects.all()
-    print(query)
     if query:
          juegos = Videogames.objects.filter(
             Q(name__icontains = query) or 
             Q(description__icontains = query)
          ).distinct()
-         
-         print(juegos)
+    paginador = Paginator(juegos, 9)
+    page = request.GET.get('page')
+    juegos = paginador.get_page(page)
     return {'game':juegos, 
+            'query':query,
             'categoria':categorias}
 

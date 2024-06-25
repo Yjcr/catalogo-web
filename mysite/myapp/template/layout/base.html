@@ -8,9 +8,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="icon" type="image/png" href="{% static 'joystick.png' %}">
     <style>
-        body{
-            margin: 0;
-        }
         nav{
             background: white;
             display: flex;
@@ -113,17 +110,16 @@
                 </li>
                 {% endif %}
                 <li>
-    
                     <form method="get">
                         <input type="text" class="input" placeholder="Buscar" name="buscar">
                         <button type="submit">buscar</button>
                     </form>
-
-                    
                 </li>
             </ul>
         </div>
     </nav>
+
+
 {% block content %}
 {% endblock %}
 <script src="{% static "global.js" %}"> </script>

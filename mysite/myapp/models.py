@@ -15,7 +15,6 @@ class Videogames(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     date = models.DateField()
     picture = models.ImageField(upload_to='galeria', null=False)
-    video = models.FileField(upload_to='galeria', null=False, default='video')
     
     def __str__(self):
         return self.name

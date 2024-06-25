@@ -2,8 +2,15 @@
 {% load static %}
 {% block content %}
 <style>
+    @font-face{
+        font-family: 'fuenteGamer';
+        src: local('fuenteGamer'), url("{% static 'fonts/Abel-Regular.ttf' %}")format('opentype');
+    }
+        
+    body{
+        font-family: 'fuenteGamer';
+    }
     body {
-        font-family: Arial, sans-serif;
         background-color: #f4f4f4;
         padding: 20px;
     }
@@ -18,6 +25,15 @@
     }
     header:hover{
         background: red;
+    }
+    .h2-container{
+        display:flex;
+        justify-content: center; 
+        align-items: center;
+        height: 50vh; 
+    }
+    .h2-container h2{
+        text-align: center;
     }
     .cards-container{
         margin: 20px;
@@ -78,7 +94,7 @@
 </style>
 <section class="main-container">
     <div class="cards-container">
-
+        {% if game %}
         {% for i in games %}
             <a href="{% url 'details' i.id %}" target="_blank">
                 <div class="product-cards">
@@ -95,8 +111,13 @@
                 </div>
             </a>
         {% empty %}
-          <h2>no hay nada</h2>
+            <div class="h2-container">
+                <h2>Actualmente, no disponemos de videojuegos que se ajusten a esa categoría específica</h2>
+            </div>
         {% endfor %}
+        {% else %}
+         <h2>no se ha encontrado algun resultado para semejante a "{{query}}"</h2> 
+        {% endif %}
     </div>
 </section>
 {% endblock content %}

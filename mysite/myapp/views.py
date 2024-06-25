@@ -20,8 +20,7 @@ def mostrar(request):
 
 def detalles(request, game_id):
     juegos = get_object_or_404(Videogames, pk=game_id)
-    
-    return render(request, 'details.html', {'games': juegos})
+    return render(request, 'details.html', {'game': juegos})
     
     
 def videojuegos_por_categorias(request, categoria_id):

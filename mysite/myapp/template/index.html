@@ -2,8 +2,15 @@
 {% load static %}
 {% block content %}
 <style>
+    @font-face{
+        font-family: 'fuenteGamer';
+        src: local('fuenteGamer'), url("{% static 'fonts/Abel-Regular.ttf' %}")format('opentype');
+    }
+        
+    body{
+        font-family: 'fuenteGamer';
+    }
     body {
-        font-family: Arial, sans-serif;
         background-color: #f4f4f4;
         padding: 20px;
     }
@@ -48,6 +55,16 @@
         margin-top: 12px;
         margin-bottom: 12px;
     }
+    .product-info div{
+        margin-bottom: 10px;
+    }
+    .product-info div p{
+        color: whitesmoke;
+        font-size: 14px;
+        margin-top: 0;
+        margin-bottom: 4px;
+        margin-left: 10px;
+    }
     .product-info button{
         margin-right: 10px;
         margin-bottom: 20px;
@@ -59,14 +76,6 @@
     .product-info button img{
         width: 20px;
         height: 20px;
-
-    }
-    .product-info div p{
-        color: whitesmoke;
-        font-size: 14px;
-        margin-top: 0;
-        margin-bottom: 4px;
-        margin-left: 10px;
     }
     .cards-container a{
         text-decoration: none;
@@ -83,27 +92,33 @@
 </header>
 <section class="main-container">
     <div class="cards-container">
-
-        {% for i in game %}
-            <a href="{% url 'details' i.id %}" target="_blank">
-                <div class="product-cards">
-                    <img src="{{ i.picture.url }}" alt="{{ i.nombre }}">
-                    <div class="product-info">
-                        <div>
-                            <p>{{i.name}} | {{i.platform}} | {{i.category}}</p>
-                            <p>{{i.price}}$</p>
-                        </div>
-                        <button>
-                             <img src="{% static 'carritou.png' %}" alt="buy">
-                        </button>
-                    </div>
+    {% if game %}
+    {% for i in game %}
+    <a href="{% url 'details' i.id %}" target="_blank">
+        <div class="product-cards">
+            <img src="{{ i.picture.url }}" alt="{{ i.nombre }}">
+            <div class="product-info">
+                <div>
+                    <p>{{i.name}} | {{i.platform}} | {{i.category}}</p>
+                    <p>{{i.price}}$</p>
                 </div>
-            </a>
-        {% empty %}
-          <h2>no hay nada</h2>
-        {% endfor %}
-   
-   
+                <button>
+                     <img src="{% static 'carritou.png' %}" alt="buy">
+                </button>
+            </div>
+        </div>
+    </a>
+    {% empty %}
+      <h2>no hay videojuegos disponibles ahora</h2>
+    {% endfor %}
+    {% else %}
+       <h2>no se ha encontrado algun resultado para semejante a "{{query}}"</h2>
+    {% endif %}
+        <div>
+            {% if game.has_next %}
+              <a href="?page={{game.next_page_number}}">anterior</a>
+            {% endif %}
+        </div>
     </div>
 </section>
 {% endblock %}
