@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
 from django.db.models import Q
+from django.http import HttpRequest
 # Create your views here.
 
 def mostrar(request):
@@ -18,7 +19,7 @@ def detalles(request, game_id):
 def videojuegos_por_categorias(request, categoria_id):
     categoria = Category.objects.get(id=categoria_id)
     videojuegos = Videogames.objects.filter(category=categoria)
-    return render(request, 'categorys.html', {'games': videojuegos} )
+    return render(request, 'categories.html', {'games': videojuegos} )
 
     
 def registro(request):
@@ -61,7 +62,5 @@ def inicio_sesion(request):
             return redirect('home')
             
             
-   
-
-
-             
+def search(request: HttpRequest):
+    return render(request, "search.html")

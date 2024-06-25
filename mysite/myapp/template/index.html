@@ -2,14 +2,6 @@
 {% load static %}
 {% block content %}
 <style>
-    @font-face{
-        font-family: 'fuenteGamer';
-        src: local('fuenteGamer'), url("{% static 'fonts/Abel-Regular.ttf' %}")format('opentype');
-    }
-        
-    body{
-        font-family: 'fuenteGamer';
-    }
     body {
         background-color: #f4f4f4;
         padding: 20px;
@@ -88,11 +80,10 @@
 </style>
 <header>
     <!-- <img src="../template/layout/controlero.png" alt="hola"> -->
-    <h1>CATALOGO WEB</h1>
+    <h1>ServíGames Store</h1>
 </header>
 <section class="main-container">
     <div class="cards-container">
-    {% if game %}
     {% for i in game %}
     <a href="{% url 'details' i.id %}" target="_blank">
         <div class="product-cards">
@@ -111,14 +102,11 @@
     {% empty %}
       <h2>no hay videojuegos disponibles ahora</h2>
     {% endfor %}
-    {% else %}
-       <h2>no se ha encontrado algun resultado semejante a "{{query}}"</h2>
-    {% endif %}
-        <div>
+        <!-- <div>
             {% if game.has_next %}
               <a href="?page={{game.next_page_number}}">anterior</a>
             {% endif %}
-        </div>
+        </div> -->
     </div>
 </section>
 {% endblock %}

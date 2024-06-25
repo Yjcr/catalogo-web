@@ -1,0 +1,95 @@
+{% extends "layout/base.html" %}
+{% load static %}
+{% block content %}
+<style>
+    body {
+        background-color: #f4f4f4;
+        padding: 20px;
+    }
+    .main-a{
+        text-decoration:none;
+    }
+    .cards-container{
+        margin: 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 340px);
+        gap: 26px;
+        place-content: center;
+    }
+    .product-cards{
+        background: gray;
+        border-radius: 20px;
+        width: 340px;
+        transition: 2s;
+    }
+    .product-cards:hover{
+        background: black;
+    }
+    .product-cards img{
+        width: 340px;
+        height: 300px;
+        border-radius: 20px;
+    }
+    .product-info{
+        /* background: yellow; */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 12px;
+        margin-bottom: 12px;
+    }
+    .product-info div{
+        margin-bottom: 10px;
+    }
+    .product-info div p{
+        color: whitesmoke;
+        font-size: 14px;
+        margin-top: 0;
+        margin-bottom: 4px;
+        margin-left: 10px;
+    }
+    .product-info button{
+        margin-right: 10px;
+        margin-bottom: 20px;
+        width: 40px;
+        height: 40px;
+        border-radius: 30px;
+        border: 1px solid;
+    }
+    .product-info button img{
+        width: 20px;
+        height: 20px;
+    }
+    .cards-container a{
+        text-decoration: none;
+    }
+    .carrito{
+        height: 20px;
+        width: 30px;
+    }
+</style>
+<section class="main-container">
+    <div class="cards-container">
+        {% if game %}
+            {% for i in game %}
+            <a class = "main-a" href="{% url 'details' i.id %}" target="_blank">
+                <div class="product-cards">
+                    <img src="{{ i.picture.url }}" alt="{{ i.nombre }}">
+                    <div class="product-info">
+                        <div>
+                            <p>{{i.name}} | {{i.platform}} | {{i.category}}</p>
+                            <p>{{i.price}}$</p>
+                        </div>
+                        <button>
+                            <img src="{% static 'carritou.png' %}" alt="buy">
+                        </button>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        {% else %}
+            <h2>No se ha encontrado algun resultado semejante a "{{query}}"</h2>
+        {% endif %}
+    </div>
+</section>
+{% endblock content %}
