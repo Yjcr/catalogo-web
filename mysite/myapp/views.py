@@ -38,10 +38,10 @@ def registro(request):
          
          except IntegrityError:
                return render(request, 'sign_in.html', {'form':UserCreationForm,
-                                                       'error':'tu usuario ya existe'})
+                                                       'ERROR':'El usuario ingresado ya existe'})
         else:
                return render(request, 'sign_in.html', {'form':UserCreationForm,
-                                                       'error': 'la contraseña no coinciden'})
+                                                       'ERROR': 'Las contraseñas no coinciden'})
                
 def cerrar_sesion(request):
     logout(request)
@@ -56,7 +56,7 @@ def inicio_sesion(request):
     
         if user is None:
              return render(request, 'sign_up.html', {'form':AuthenticationForm,
-                                                    'error':'tu clave o usario es incorrecta'})  
+                                                    'ERROR':'Su Contraseña o usario son incorrectos'})  
         else:
             login(request, user)
             return redirect('home')
