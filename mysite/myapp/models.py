@@ -178,7 +178,7 @@ class Videojuegos(models.Model):
     descripcion = models.TextField(db_column='Descripcion', blank=True, null=True)  # Field name made lowercase.
     precio = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, db_column='Precio')
     plataforma = models.CharField(db_column='Plataforma', max_length=30, blank=True, null=True)  # Field name made lowercase.
-    imagenjuego = models.ImageField(upload_to='videojuegos', blank=True, null=True, db_column='ImagenJuego')
+    imagenjuego = models.ImageField(upload_to='galeria', blank=True, null=True, db_column='ImagenJuego')
     iddesarrolladora = models.ForeignKey(Desarrolladoras, models.DO_NOTHING, db_column='IDDesarrolladora', blank=True, null=True)  # Field name made lowercase.
     idcategoria = models.ForeignKey(Categorias, models.DO_NOTHING, db_column='IDCategoria', blank=True, null=True)  # Field name made lowercase.
     
