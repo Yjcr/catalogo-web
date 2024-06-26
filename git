@@ -1,0 +1,47 @@
+* [33m68c3d[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m Incoherencia de datos [1;30m2 minutes ago
+[31m|[m * [33m28f77[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m M.D fixed [1;30m4 hours ago
+[31m|[m * [33mbf6f1[m M.D en falla [1;30m4 hours ago
+[31m|[m[31m/[m  
+* [33md80cb[m Pruebas en la pagina [1;30m6 hours ago
+*   [33mfd1e9[m Resolviendo errores [1;30m7 hours ago
+[33m|[m[34m\[m  
+[33m|[m * [33m8fa0c[m Cambios necesarios [1;30m7 hours ago
+[33m|[m * [33m6b886[m Add files via upload [1;30m8 hours ago
+* [34m|[m [33m8c4ac[m forms par 1.5 [1;30m7 hours ago
+[35m|[m[34m\[m[34m|[m 
+[35m|[m * [33m266f4[m Devolviendo migraciones [1;30m8 hours ago
+[35m|[m *   [33me2ddf[m Resolviendo conflictos [1;30m8 hours ago
+[35m|[m [1;31m|[m[1;32m\[m  
+[35m|[m * [1;32m|[m [33m8d6e4[m Archivo para Render y migration [1;30m8 hours ago
+[35m|[m * [1;32m|[m [33mc0d22[m[33m ([m[1;31morigin/Servidor[m[33m)[m Archivo de configuracion para Render [1;30m9 hours ago
+[35m|[m * [1;32m|[m [33m0c4d8[m Implementando postgre y agregando toda la base de datos normalizada [1;30m10 hours ago
+* [1;32m|[m [1;32m|[m [33m1f062[m forms part 1 [1;30m8 hours ago
+[1;32m|[m [1;32m|[m[1;32m/[m  
+[1;32m|[m[1;32m/[m[1;32m|[m   
+* [1;32m|[m   [33m2e74a[m eliminacion [1;30m10 hours ago
+[1;33m|[m[1;34m\[m [1;32m\[m  
+[1;33m|[m * [1;32m|[m [33m71cb8[m Implementando postgre [1;30m10 hours ago
+[1;33m|[m [1;32m|[m[1;32m/[m  
+* [1;32m|[m [33m634c0[m archivo eliminado [1;30m10 hours ago
+* [1;32m|[m [33m420ff[m Probando que se ignoren archivos [1;30m14 hours ago
+[1;32m|[m[1;32m/[m  
+* [33m568e5[m Eliminando archivos de cache para ignorarlos luego [1;30m14 hours ago
+*   [33m1ed51[m Merge branch 'master' of https://github.com/Yjcr/catalogo-web [1;30m15 hours ago
+[1;35m|[m[1;36m\[m  
+[1;35m|[m * [33m9c224[m Mejorando mensajes de alerta [1;30m33 hours ago
+* [1;36m|[m [33maefd5[m B.B en details [1;30m15 hours ago
+[1;36m|[m[1;36m/[m  
+* [33mb7dbf[m fixed search [1;30m2 days ago
+* [33m2e585[m msj opcional [1;30m2 days ago
+* [33m96ddd[m M.D con js + C.Processor [1;30m8 days ago
+* [33mc4f22[m nuevo navbar [1;30m10 days ago
+* [33mb4b53[m redireccion y barra de busqueda [1;30m10 days ago
+* [33mfb361[m menu desplegable [1;30m12 days ago
+* [33md35e5[m cambios en el navbar [1;30m5 weeks ago
+*   [33m1c011[m cambios [1;30m7 weeks ago
+[31m|[m[32m\[m  
+[31m|[m * [33m59158[m nuevos cambios [1;30m8 weeks ago
+* [32m|[m [33mfa4e3[m proyecto god [1;30m7 weeks ago
+* [32m|[m [33md2da8[m nuevos cambios [1;30m8 weeks ago
+[32m|[m[32m/[m  
+* [33mb9c03[m todo todin todito [1;30m8 weeks ago
