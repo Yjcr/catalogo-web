@@ -8,8 +8,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="icon" type="image/png" href="{% static 'joystick.png' %}">
     <style>
+        @font-face{
+        font-family: 'fuenteGamer';
+        src: local('fuenteGamer'), url("{% static 'fonts/Abel-Regular.ttf' %}")format('opentype');
+        }
+        
         body{
-            margin: 0;
+        font-family: 'fuenteGamer';
         }
         nav{
             background: white;

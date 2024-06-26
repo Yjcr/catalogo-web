@@ -20,4 +20,6 @@ def mostrar(request):
     # paginador = Paginator(juegos, 9)
     # page = request.GET.get("page")
     # juegos = paginador.get_page(page)
-    return {"game": juegos, "query": query, "categoria": categorias}
+    return {"game": juegos,
+            "query": query, 
+            "categoria": categorias}

@@ -89,8 +89,7 @@ def registro(request):
 
 def cerrar_sesion(request):
     logout(request)
-    return redirect("Inicio")
-
+    return redirect("Inicio") 
 
 def inicio_sesion(request):
     if request.method == "GET":

@@ -87,7 +87,7 @@
                     </button>   
                     <div class="menu" id="Categorias-menu" style="display: none;">
                         {% for i in categoria %}
-                         <a href="{% url 'categories' i.idcategoria %}">{{i.nombrecategoria}}</a>
+                         <a href="{% url 'categories' i.idcategoria %}"> {{i.nombrecategoria}} </a>
                         {% endfor %}
                     </div>   
                 </li>
@@ -120,7 +120,7 @@
                 <li>
                     <a href="{% url 'create' %}">crear</a>
                 </li>
-                
+
                 <li>
                     <form method="get" action="{% url 'search' %}">
                         <input type="text" class="input" placeholder="Buscar" name="buscar">
