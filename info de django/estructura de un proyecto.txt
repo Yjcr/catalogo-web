@@ -1,5 +1,0 @@
-en cada una de las apps que creemos en un proyecto, nos encontramos con la carpeta "migrations", esta se llenara con los diferentes
-modificaciones que hagamos en la base datos.
-
-en django no tendremos que hacer consultas sql, dado que django cuenta con un modulo especial (orm) que nos permitira interactuar con
-la base de dato a traves de codigo de python

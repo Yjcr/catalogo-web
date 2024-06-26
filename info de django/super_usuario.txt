@@ -1,8 +1,0 @@
-python manage.py createsuperuser: este comando permite crear un usuario del tipo admin en nuestro proyecto
-
-al momento de ingresar a la cuenta del super usuario, nos encontraremos 2 opciones: users, groups; en la opcion users
-podremos dictaminar los usuarios que tendran acceso a nuestro proyecto, y la opcion groups dictaminara los permisos que 
-tendran ciertos grupos de personas
-
-cuando accedemos a unos de los datos del modelo en panel de control de administrado, podemos borrar algunos objeto;sin embargo,
-si una tupla es determinante en una tupla, esta se eliminara automaticamente.
