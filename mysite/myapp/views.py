@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Videogames, Category
+from .models import Videojuegos, Categorias, Desarrolladoras, Usuarios, Empleados, Clientes, Pagos, Detallesfactura, Facturas, Favoritos, Promociones, Reseñas, Ubicaciones
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
@@ -12,13 +12,13 @@ def mostrar(request):
     return render(request, 'index.html',)
 
 def detalles(request, game_id):
-    juegos = get_object_or_404(Videogames, pk=game_id)
+    juegos = get_object_or_404(Videojuegos, pk=game_id)
     return render(request, 'details.html', {'game': juegos})
     
     
 def videojuegos_por_categorias(request, categoria_id):
-    categoria = Category.objects.get(id=categoria_id)
-    videojuegos = Videogames.objects.filter(category=categoria)
+    categoria = Categorias.objects.get(id=categoria_id)
+    videojuegos = Videojuegos.objects.filter(Categorias=categoria)
     return render(request, 'categories.html', {'games': videojuegos} )
 
     
