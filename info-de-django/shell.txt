@@ -1,0 +1,42 @@
+python manage.py shell: nos permitira acceder al interprete de python desde la consola
+"tabla en cuestion"("nombre del dominio" = "dato a guardar"): esta linea de codigo en python nos permite 
+insertar datos a una tabla en nuestra base de datos
+
+normalmente este tipo de movimientos se le asignan una variable para que sea mas facil su posterior migracion 
+a la base de datos; esto se ejecuta con la funcion save(). Un ejemplo de ello es:
+"Varible en cuestion".save()
+
+si quisieramos acceder a los objetos de una clase, tendriamos que utilizar la siguiente linea de codigo:
+"clase en cuestion".objects.all()
+al momento de utilizar esta linea de codigo, nos retornara una "Queryset" que contendra los objetos almacenados en nuestra clase. esta funcion 
+se le conoce como una coleccion de datos de una base de datos
+
+"clase en cuestion".objects.get("dominio al cual acceder" = "al dato que queremos acceder"): este comando nos permite acceder a 
+un dato de una entidad
+
+exit(): nos cortara la comunicacion con la base datos
+
+al momento de querer agragar datos a una tupla la cual depende uno de sus datos de otra relacion, debemos ahcer lo sigueinte:
+
+1) primero accedemos al dato que queremos tomar, esto a traves de la siguiente funcion ya mencionada "p = Project.objects.get(id = 2)"
+2) a traves de la variable que enlazamos el movimiento en la base datos, aplicamos la siguiente funcion "p.task_set.create("nombre del dominio
+" = "dato que ingresaremos")". En esta funcion podemos agregar multiples datos a multiples dominios
+
+por ultimo si queremos saber los movimientos hecho en la base de datos, utilizamos la siguiente linea de codigo:
+p.task_set.all()
+>>> from myapp.models import Task, Project
+>>> p = Project(name = "wakanda") agregamos un dato a una tabla la cual no depende de otra para generar un dato en su tupla
+>>> p.save() establecemos el movimiento
+>>> p = Project.objects.get(id = 2) "accedemos al dato"
+>>> p.task_set.all() "impreme las tareas hechas"
+<QuerySet []>
+>>> p.task_set.create(title = "intestino congestionado", description = "dia fatidico en la plaza venezuela") 
+ingresa datos a multiples dominios
+<Task: Task object (1)>
+>>> p.task_set.all()
+<QuerySet [<Task: Task object (1)>]>
+>>>
+
+si queremos buscar un objeto/dato en especifico en una tabla, ya sea por apartir de un caracter o alguna id, podemos utilizar la siguiente funcion:
+"clase o dominio en cuestion".objects.filter("dominio en cuestion"__startswith = "lo que deseas buscar")
+dado el caso declaramos la busqueda de un objeto inexistente, nos retornara un queryset vacio
