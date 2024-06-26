@@ -72,7 +72,7 @@
     <div class="cards-container">
         {% if game %}
             {% for i in game %}
-            <a class = "main-a" href="{% url 'details' i.idvideojuegos %}" target="_blank">
+            <a class = "main-a" href="{% url 'details' i.idvideojuego %}" target="_blank">
                 <div class="product-cards">
                     <img src="{{ i.imagenjuego.url }}" alt="{{ i.nombre }}">
                     <div class="product-info">

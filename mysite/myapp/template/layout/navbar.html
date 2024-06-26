@@ -11,7 +11,7 @@
                 </button>   
                 <div class="menu" id="Categorias-menu" style="display: none;">
                     {% for i in categoria %}
-                     <a href="{% url 'categories' i.idvideojuegos %}">{{i.nombre}}</a>
+                     <a href="{% url 'categories' i.idcategoria %}">{{i.nombre}}</a>
                     {% endfor%}
                 </div>   
             </li>

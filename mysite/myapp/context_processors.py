@@ -14,7 +14,7 @@ def mostrar(request):
     categorias = Categorias.objects.all()
     if query:
         juegos = Videojuegos.objects.filter(
-            Q(name__icontains=query) or Q(description__icontains=query)
+            Q(nombre__icontains=query) or Q(descripcion__icontains=query)
         ).distinct()
     paginador = Paginator(juegos, 9)
     page = request.GET.get("page")

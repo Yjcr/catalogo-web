@@ -167,11 +167,11 @@ class Usuarios(models.Model):
 
 class Videojuegos(models.Model):
     idvideojuego = models.AutoField(db_column='IDVideojuego', primary_key=True)  # Field name made lowercase.
-    nombre = models.CharField(db_column='Nombre', max_length=20, blank=True, null=True)  # Field name made lowercase.
+    nombre = models.CharField(db_column='Nombre', max_length=30, blank=True, null=True)  # Field name made lowercase.
     lanzamiento = models.DateField(db_column='Lanzamiento', blank=True, null=True)  # Field name made lowercase.
     descripcion = models.TextField(db_column='Descripcion', blank=True, null=True)  # Field name made lowercase.
-    precio = models.DecimalField(db_column='Precio', max_digits=10, decimal_places=5, blank=True, null=True)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
-    plataforma = models.CharField(db_column='Plataforma', max_length=10, blank=True, null=True)  # Field name made lowercase.
+    precio = models.DecimalField(db_column='Precio', max_digits=30, decimal_places=5, blank=True, null=True)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
+    plataforma = models.CharField(db_column='Plataforma', max_length=30, blank=True, null=True)  # Field name made lowercase.
     imagenjuego = models.TextField(db_column='ImagenJuego', blank=True, null=True)  # Field name made lowercase.
     iddesarrolladora = models.ForeignKey(Desarrolladoras, models.DO_NOTHING, db_column='IDDesarrolladora', blank=True, null=True)  # Field name made lowercase.
     idcategoria = models.ForeignKey(Categorias, models.DO_NOTHING, db_column='IDCategoria', blank=True, null=True)  # Field name made lowercase.
