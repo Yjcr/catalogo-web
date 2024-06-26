@@ -1,7 +1,7 @@
 {% extends 'layout/base.html' %}
 {% load static %}
 {% block content %}
- <h2> GAMES</h2>
+ <h2> GAMES </h2>
  <h3>Categorias</h3>
  <form action="/myapp/create/" method="POST">
     {% csrf_token %}
@@ -28,15 +28,4 @@
         save
     </button>
  </form>
-
- <h3> desarrolladora </h3>
- <form action="/myapp/create/" method="POST">
-    {% csrf_token %}
-    {{form_desarrolladora}}
-    <button>
-        save
-    </button>
- </form>
-
-
 {% endblock content %}
