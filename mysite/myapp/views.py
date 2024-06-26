@@ -48,10 +48,17 @@ def create(request):
                                             'form_categorias':crear_categorias,
                                             'form_desarrolladora':crear_desarrolladora})
     else:
-     print(request.POST)
-     return render(request, "create.html", {'form_videojuegos':crear_viedojuegos,
-                                            'form_categorias':crear_categorias,
-                                            'form_desarrolladora':crear_desarrolladora})
+     form_videojuegos = crear_viedojuegos(request.POST)
+     form_categorias = crear_categorias(request.POST)
+     form_desarrolladora = crear_desarrolladora(request.POST)
+        
+     if form_videojuegos.is_valid():
+        form_videojuegos.save()
+     elif form_categorias.is_valid():
+        form_categorias.save()
+     elif form_desarrolladora.is_valid():
+        form_desarrolladora.save()
+     return redirect('/create/')
 
     
 def registro(request):

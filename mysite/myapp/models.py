@@ -1,4 +1,6 @@
-# This is an auto-generated Django model module.
+# This is an auto-generated   # def __str__(self):
+    #     return self.nombredesarrolladora
+    # Django model module.
 # You'll have to do the following manually to clean this up:
 #   * Rearrange models' order
 #   * Make sure each model has one field with primary_key=True
@@ -14,7 +16,7 @@ class Categorias(models.Model):
     descripcioncategoria = models.TextField(db_column='DescripcionCategoria', blank=True, null=True)  # Field name made lowercase.
     
     def __str__(self):
-        return self.nombrecategoria
+        return self.nombrecategoria if self.nombrecategoria else "Sin nombre"
     
     class Meta:
         managed = False
@@ -39,9 +41,7 @@ class Desarrolladoras(models.Model):
     descripciondes = models.TextField(db_column='DescripcionDes', blank=True, null=True)  # Field name made lowercase.
     sitioweb = models.TextField(db_column='SitioWeb', blank=True, null=True)  # Field name made lowercase.
     
-    def __str__(self):
-        return self.nombredesarrolladora
-    
+  
     class Meta:
         managed = False
         db_table = 'Desarrolladoras'
@@ -183,7 +183,7 @@ class Videojuegos(models.Model):
     idcategoria = models.ForeignKey(Categorias, models.DO_NOTHING, db_column='IDCategoria', blank=True, null=True)  # Field name made lowercase.
     
     def __str__(self):
-        return self.nombre
+        return self.nombre if self.nombre else "Sin nombre"
     class Meta:
         managed = False
         db_table = 'Videojuegos'
