@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('idcategoria', models.AutoField(db_column='IDCategoria', primary_key=True, serialize=False)),
                 ('nombrecategoria', models.CharField(blank=True, db_column='NombreCategoria', max_length=15, null=True)),
-                ('descripcioncategoria', models.TextField(blank=True, db_column='DescrpcionCategoria', null=True)),
+                ('descripcioncategoria', models.TextField(blank=True, db_column='DescripcionCategoria', null=True)),
             ],
             options={
                 'db_table': 'Categorias',

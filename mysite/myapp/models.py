@@ -13,7 +13,6 @@ class Categorias(models.Model):
     nombrecategoria = models.CharField(db_column='NombreCategoria', max_length=15, blank=True, null=True)  # Field name made lowercase.
     descripcioncategoria = models.TextField(db_column='DescripcionCategoria', blank=True, null=True)  # Field name made lowercase.
 
-
     class Meta:
         managed = False
         db_table = 'Categorias'
