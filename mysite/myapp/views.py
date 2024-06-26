@@ -6,6 +6,7 @@ from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
 from django.db.models import Q
 from django.http import HttpRequest
+from .forms import crear_viedojuegos, crear_categorias, crear_desarrolladora
 # Create your views here.
 
 def mostrar(request):
@@ -20,8 +21,22 @@ def videojuegos_por_categorias(request, categoria_id):
     categoria = Categorias.objects.get(id=categoria_id)
     videojuegos = Videojuegos.objects.filter(Categorias=categoria)
     return render(request, 'categories.html', {'games': videojuegos} )
+            
+def search(request: HttpRequest):
+    return render(request, "search.html")
+     
 
-    
+def create_videogames(request):
+    if request.method == "GET":
+     return render(request, "create.html", {'form_videojuegos':crear_viedojuegos,
+                                            'form_categorias':crear_categorias,
+                                            'form_desarrolladora':crear_desarrolladora})
+    else:
+     print(request.POST)
+     return render(request, "create.html", {'form_videojuegos':crear_viedojuegos,
+                                            'form_categorias':crear_categorias,
+                                            'form_desarrolladora':crear_desarrolladora})
+     
 def registro(request):
     if request.method == 'GET':
         return render(request, 'sign_in.html', {'form':UserCreationForm})
@@ -61,6 +76,3 @@ def inicio_sesion(request):
             login(request, user)
             return redirect('home')
             
-            
-def search(request: HttpRequest):
-    return render(request, "search.html")

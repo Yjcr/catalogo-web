@@ -85,13 +85,13 @@
 <section class="main-container">
     <div class="cards-container">
     {% for i in game %}
-    <a href="{% url 'details' i.id %}" target="_blank">
+    <a href="{% url 'details' i.idvideojuegos %}" target="_blank">
         <div class="product-cards">
-            <img src="{{ i.picture.url }}" alt="{{ i.nombre }}">
+            <img src="{{ i.imagenjuego.url }}" alt="{{ i.nombre }}">
             <div class="product-info">
                 <div>
-                    <p>{{i.name}} | {{i.platform}} | {{i.Categorias}}</p>
-                    <p>{{i.price}}$</p>
+                    <p>{{i.nombre}} | {{i.plataforma}} | {{i.idcategoria}}</p>
+                    <p>{{i.precio}}$</p>
                 </div>
                 <button>
                      <img src="{% static 'carritou.png' %}" alt="buy">

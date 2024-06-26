@@ -11,7 +11,7 @@ from django.db import models
 class Categorias(models.Model):
     idcategoria = models.AutoField(db_column='IDCategoria', primary_key=True)  # Field name made lowercase.
     nombrecategoria = models.CharField(db_column='NombreCategoria', max_length=15, blank=True, null=True)  # Field name made lowercase.
-    descrpcioncategoria = models.TextField(db_column='DescrpcionCategoria', blank=True, null=True)  # Field name made lowercase.
+    descripcioncategoria = models.TextField(db_column='DescripcionCategoria', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
         managed = False
@@ -147,22 +147,22 @@ class Ubicaciones(models.Model):
         db_table_comment = 'Tabla de ubicaciones que conecta con la direcciñn del cliente'
 
 
-class Usuarios(models.Model):
-    idusuario = models.AutoField(db_column='IDUsuario', primary_key=True)  # Field name made lowercase.
-    nombre = models.CharField(db_column='Nombre', max_length=10, blank=True, null=True)  # Field name made lowercase.
-    apellido = models.CharField(db_column='Apellido', max_length=10, blank=True, null=True)  # Field name made lowercase.
-    cedula = models.CharField(db_column='Cedula', max_length=20, blank=True, null=True)  # Field name made lowercase.
-    nacimiento = models.DateField(db_column='Nacimiento', blank=True, null=True)  # Field name made lowercase.
-    email = models.CharField(db_column='Email', max_length=254, blank=True, null=True)  # Field name made lowercase.
-    telefono = models.CharField(db_column='Telefono', max_length=20, blank=True, null=True)  # Field name made lowercase.
-    nombreusuario = models.CharField(db_column='NombreUsuario', max_length=15, blank=True, null=True)  # Field name made lowercase.
-    contraseña = models.CharField(db_column='Contraseña', max_length=15, blank=True, null=True)  # Field name made lowercase.
-    rol = models.TextField(db_column='Rol', blank=True, null=True)  # Field name made lowercase. This field type is a guess.
+# class Usuarios(models.Model):
+#     idusuario = models.AutoField(db_column='IDUsuario', primary_key=True)  # Field name made lowercase.
+#     nombre = models.CharField(db_column='Nombre', max_length=10, blank=True, null=True)  # Field name made lowercase.
+#     apellido = models.CharField(db_column='Apellido', max_length=10, blank=True, null=True)  # Field name made lowercase.
+#     cedula = models.CharField(db_column='Cedula', max_length=20, blank=True, null=True)  # Field name made lowercase.
+#     nacimiento = models.DateField(db_column='Nacimiento', blank=True, null=True)  # Field name made lowercase.
+#     email = models.CharField(db_column='Email', max_length=254, blank=True, null=True)  # Field name made lowercase.
+#     telefono = models.CharField(db_column='Telefono', max_length=20, blank=True, null=True)  # Field name made lowercase.
+#     nombreusuario = models.CharField(db_column='NombreUsuario', max_length=15, blank=True, null=True)  # Field name made lowercase.
+#     contraseña = models.CharField(db_column='Contraseña', max_length=15, blank=True, null=True)  # Field name made lowercase.
+#     rol = models.TextField(db_column='Rol', blank=True, null=True)  # Field name made lowercase. This field type is a guess.
 
-    class Meta:
-        managed = False
-        db_table = 'Usuarios'
-        db_table_comment = 'Tabla que almacenara los usuarios de la pagina web'
+#     class Meta:
+#         managed = False
+#         db_table = 'Usuarios'
+#         db_table_comment = 'Tabla que almacenara los usuarios de la pagina web'
 
 
 class Videojuegos(models.Model):

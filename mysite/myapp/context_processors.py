@@ -13,7 +13,7 @@ def mostrar(request):
     juegos = Videojuegos.objects.all()
     categorias = Categorias.objects.all()
     if query:
-        juegos = Videogames.objects.filter(
+        juegos = Videojuegos.objects.filter(
             Q(name__icontains=query) or Q(description__icontains=query)
         ).distinct()
     paginador = Paginator(juegos, 9)

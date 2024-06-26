@@ -6,14 +6,14 @@
             </li>
 
             <li>
-                        <button id="menu">
-                            Categorias
-                        </button>   
-                        <div class="menu" id="Categorias-menu" style="display: none;">
-                            {% for i in categoria %}
-                             <a href="{% url 'categories' i.id %}">{{i.name}}</a>
-                            {% endfor%}
-                        </div>   
+                <button id="menu">
+                     Categorias
+                </button>   
+                <div class="menu" id="Categorias-menu" style="display: none;">
+                    {% for i in categoria %}
+                     <a href="{% url 'categories' i.idvideojuegos %}">{{i.nombre}}</a>
+                    {% endfor%}
+                </div>   
             </li>
         </ul>
     </div>
@@ -42,7 +42,7 @@
             </li>
             {% endif %}
             <li>
-                <form method="get" action="{%url 'search' %}">
+                <form method="get" action="{% url 'search' %}">
                     <input type="text" class="input" placeholder="Buscar" name="buscar">
                     <button type="submit">buscar</button>
                 </form>
