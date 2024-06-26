@@ -12,7 +12,10 @@ class Categorias(models.Model):
     idcategoria = models.AutoField(db_column='IDCategoria', primary_key=True)  # Field name made lowercase.
     nombrecategoria = models.CharField(db_column='NombreCategoria', max_length=15, blank=True, null=True)  # Field name made lowercase.
     descripcioncategoria = models.TextField(db_column='DescripcionCategoria', blank=True, null=True)  # Field name made lowercase.
-
+    
+    def __str__(self):
+        return self.nombrecategoria
+    
     class Meta:
         managed = False
         db_table = 'Categorias'
@@ -35,7 +38,10 @@ class Desarrolladoras(models.Model):
     nombredesarrolladora = models.CharField(db_column='NombreDesarrolladora', blank=True, null=True)  # Field name made lowercase.
     descripciondes = models.TextField(db_column='DescripcionDes', blank=True, null=True)  # Field name made lowercase.
     sitioweb = models.TextField(db_column='SitioWeb', blank=True, null=True)  # Field name made lowercase.
-
+    
+    def __str__(self):
+        return self.nombredesarrolladora
+    
     class Meta:
         managed = False
         db_table = 'Desarrolladoras'
@@ -175,7 +181,9 @@ class Videojuegos(models.Model):
     imagenjuego = models.TextField(db_column='ImagenJuego', blank=True, null=True)  # Field name made lowercase.
     iddesarrolladora = models.ForeignKey(Desarrolladoras, models.DO_NOTHING, db_column='IDDesarrolladora', blank=True, null=True)  # Field name made lowercase.
     idcategoria = models.ForeignKey(Categorias, models.DO_NOTHING, db_column='IDCategoria', blank=True, null=True)  # Field name made lowercase.
-
+    
+    def __str__(self):
+        return self.nombre
     class Meta:
         managed = False
         db_table = 'Videojuegos'

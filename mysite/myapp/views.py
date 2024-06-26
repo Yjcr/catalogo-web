@@ -30,10 +30,17 @@ def mostrar(request):
         "index.html",
     )
 
-
 def detalles(request, game_id):
     juegos = get_object_or_404(Videojuegos, pk=game_id)
     return render(request, "details.html", {"game": juegos})
+
+def videojuegos_por_categorias(request, categoria_id):
+    categoria = Categorias.objects.get(idcategoria = categoria_id)
+    videojuegos = Videojuegos.objects.filter(idcategoria = categoria)
+    return render(request, 'categories.html', {'games': videojuegos})
+
+def search(request: HttpRequest):
+    return render(request, "search.html")
 
 def create(request):
     if request.method == "GET":
@@ -45,11 +52,6 @@ def create(request):
      return render(request, "create.html", {'form_videojuegos':crear_viedojuegos,
                                             'form_categorias':crear_categorias,
                                             'form_desarrolladora':crear_desarrolladora})
-
-def videojuegos_por_categorias(request, categoria_id):
-    categoria = Categorias.objects.get(id=categoria_id)
-    videojuegos = Videojuegos.objects.filter(Categorias=categoria)
-    return render(request, 'categories.html', {'games': videojuegos} )
 
     
 def registro(request):
@@ -113,6 +115,4 @@ def inicio_sesion(request):
             login(request, user)
             return redirect('Inicio')
             
-            
-def search(request: HttpRequest):
-    return render(request, "search.html")
+        

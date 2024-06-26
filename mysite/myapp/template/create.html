@@ -3,7 +3,7 @@
 {% block content %}
  <h2> GAMES </h2>
  <h3>Categorias</h3>
- <form action="/myapp/create/" method="POST">
+ <form method="POST" action="{% url 'create' %}">
     {% csrf_token %}
     {{form_categorias}}
     <button>
@@ -12,7 +12,7 @@
  </form>
 
  <h3> videojuegos </h3>
- <form action="/myapp/create/" method="POST">
+ <form method="POST" action="{% url 'create' %}">
     {% csrf_token %}
     {{form_videojuegos}}
     <button>
@@ -21,7 +21,7 @@
  </form>
 
  <h3> desarrolladora </h3>
- <form action="/myapp/create/" method="POST">
+ <form method="POST" action="{% url 'create' %}">
     {% csrf_token %}
     {{form_desarrolladora}}
     <button>
