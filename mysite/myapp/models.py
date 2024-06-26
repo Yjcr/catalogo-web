@@ -11,7 +11,7 @@ from django.db import models
 class Categorias(models.Model):
     idcategoria = models.AutoField(db_column='IDCategoria', primary_key=True)  # Field name made lowercase.
     nombrecategoria = models.CharField(db_column='NombreCategoria', max_length=15, blank=True, null=True)  # Field name made lowercase.
-    descripcioncategoria = models.TextField(db_column='DescrpcionCategoria', blank=True, null=True)  # Field name made lowercase.
+    descripcioncategoria = models.TextField(db_column='DescripcionCategoria', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
         managed = False

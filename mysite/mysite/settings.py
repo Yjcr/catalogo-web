@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',        
-        'HOST': 'localhost',
+        'HOST': '192.168.0.101',
         'PORT': '5432',
         'NAME': 'CatalogoWeb',
         'USER': 'postgres',
