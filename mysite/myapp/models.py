@@ -6,7 +6,7 @@
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
-
+from django.contrib.auth.models import User
 
 class Categorias(models.Model):
     idcategoria = models.AutoField(db_column='IDCategoria', primary_key=True)  # Field name made lowercase.
@@ -170,6 +170,20 @@ class Usuarios(models.Model):
         db_table = 'Usuarios'
         db_table_comment = 'Tabla que almacenara los usuarios de la pagina web'
 
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    nombre = models.CharField(db_column='Nombre', max_length=10, blank=True, null=True)
+    apellido = models.CharField(db_column='Apellido', max_length=10, blank=True, null=True)
+    cedula = models.CharField(db_column='Cedula', max_length=20, blank=True, null=True)
+    nacimiento = models.DateField(db_column='Nacimiento', blank=True, null=True)
+    telefono = models.CharField(db_column='Telefono', max_length=20, blank=True, null=True)
+    nombreusuario = models.CharField(db_column='NombreUsuario', max_length=15, blank=True, null=True)
+    contraseña = models.CharField(db_column='Contraseña', max_length=15, blank=True, null=True)
+    rol = models.TextField(db_column='Rol', blank=True, null=True)
+
+    class Meta:
+        db_table = 'Usuarios'
+        db_table_comment = 'Tabla que almacenará los usuarios de la página web'
 
 class Videojuegos(models.Model):
     idvideojuego = models.AutoField(db_column='IDVideojuego', primary_key=True)  # Field name made lowercase.
