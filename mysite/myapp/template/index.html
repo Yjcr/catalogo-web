@@ -84,23 +84,25 @@
 </header>
 <section class="main-container">
     <div class="cards-container">
-    {% for i in game %}
-    <a href="{% url 'details' i.idvideojuego %}" target="_blank">
-        <div class="product-cards">
-            <img src="{{ i.imagenjuego.url }}" alt="{{ i.nombre }}">
-            <div class="product-info">
-                <div>
-                    <p>{{i.nombre}} | {{i.plataforma}} | {{i.idcategoria}}</p>
-                    <p>{{i.precio}}$</p>
+        {% for i in game %}
+        <a href="{% url 'details' i.idvideojuego %}" target="_blank">
+            <div class="product-cards">
+                {% if i.imagenjuego %}
+                    <img src="{{ i.imagenjuego.url }}" alt="{{ i.nombre }}">
+                {% else %}
+                    <img src="{% static 'default_image.png' %}" alt="No image available">
+                {% endif %}
+                <div class="product-info">
+                    <div>
+                        <p>{{i.nombre}} | {{i.plataforma}} | {{i.idcategoria}}</p>
+                        <p>{{i.precio}}$</p>
+                    </div>
+                    <button>
+                        <img src="{% static 'carritou.png' %}" alt="buy">
+                    </button>
                 </div>
-                <button>
-                     <img src="{% static 'carritou.png' %}" alt="buy">
-                </button>
             </div>
-        </div>
-    </a>
-    {% empty %}
-      <h2>no hay videojuegos disponibles ahora</h2>
+        </a>
     {% endfor %}
         <!-- <div>
             {% if game.has_next %}
