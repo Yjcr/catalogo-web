@@ -74,7 +74,63 @@
     </style>
 </head>
 <body>
-    {%include "./navbar.html"%}
+    <nav>
+        <div class="navbar-left">
+            <ul>
+                <li>
+                    <a href="{% url 'Inicio' %}">Inicio</a>
+                </li>
+    
+                <li>
+                    <button id="menu">
+                         Categorias
+                    </button>   
+                    <div class="menu" id="Categorias-menu" style="display: none;">
+                        {% for i in categoria %}
+                         <a href="{% url 'categories' i.idcategoria %}"> {{i.nombrecategoria}} </a>
+                        {% endfor %}
+                    </div>   
+                </li>
+            </ul>
+        </div>
+    
+        <div class="navbar-right">
+            <ul>
+                {% if user.is_authenticated and user.is_superuser %}
+                <li>
+                    <a href="{% url 'logout' %}">Cerrar sesión</a>
+                </li>
+    
+                <li>
+                    <a href="/admin/">Panel de control</a>
+                </li>
+                {% elif user.is_authenticated %}
+                <li>
+                    <a href="{% url 'logout' %}">Cerrar sesión</a>
+                </li>
+                {% else %}
+                <li>
+                    <a href="{% url 'login' %}">Iniciar sesión</a>
+                </li>
+    
+                <li>
+                    <a href="{% url 'register' %}">Registrarse</a>
+                </li>
+                {% endif %}
+                <li>
+                    <a href="{% url 'create' %}">crear</a>
+                </li>
+
+                <li>
+                    <form method="get" action="{% url 'search' %}">
+                        <input type="text" class="input" placeholder="Buscar" name="buscar">
+                        <button type="submit">buscar</button>
+                    </form>
+                </li>
+               
+            </ul>
+        </div>
+    </nav>
 {% block content %}
 {% endblock %}
 <script src="{% static "global.js" %}"> </script>
