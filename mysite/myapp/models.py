@@ -193,8 +193,8 @@ class Videojuegos(models.Model):
     precio = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, db_column='Precio')
     plataforma = models.CharField(db_column='Plataforma', max_length=30, blank=True, null=True)  # Field name made lowercase.
     imagenjuego = models.ImageField(upload_to='galeria', blank=True, null=True, db_column='ImagenJuego')
-    iddesarrolladora = models.ForeignKey(Desarrolladoras, models.DO_NOTHING, db_column='IDDesarrolladora', blank=True, null=True)  # Field name made lowercase.
-    idcategoria = models.ForeignKey(Categorias, models.DO_NOTHING, db_column='IDCategoria', blank=True, null=True)  # Field name made lowercase.
+    iddesarrolladora = models.ForeignKey(Desarrolladoras, on_delete=models.SET_NULL, db_column='IDDesarrolladora', blank=True, null=True)  # Field name made lowercase.
+    idcategoria = models.ForeignKey(Categorias, on_delete=models.SET_NULL, db_column='IDCategoria', blank=True, null=True)  # Field name made lowercase.
     
     def __str__(self):
         return self.nombre if self.nombre else "Sin nombre"
