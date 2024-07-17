@@ -34,13 +34,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Application definition
 
 INSTALLED_APPS = [
+    'myapp.apps.MyappConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'myapp'
 ]
 
 MIDDLEWARE = [
@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',        
-        'HOST': '192.168.0.101',
+        'HOST': '192.168.0.111',
         'PORT': '5432',
         'NAME': 'CatalogoWeb',
         'USER': 'postgres',
