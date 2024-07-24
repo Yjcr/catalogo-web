@@ -1,8 +1,6 @@
 {% extends 'layout/base.html' %}
 {% load static %}
 {% block content %}
-<style>
-</style>
  <div class="product-cards">
     <img src="{{ game.imagenjuego.url }}" alt="{{ game.nombre }}">
     <div class="product-info">
@@ -13,7 +11,7 @@
             <p>fecha de lanzamiento: {{game.lanzamiento|date:"d M, Y"}}</p>
         </div>
         <button>
-            <img src="{% static 'carritou.png' %}" alt="buy">
+            <img src="{% static 'imagenes/carritou.png' %}" alt="buy">
         </button>
     </div>
  </div>

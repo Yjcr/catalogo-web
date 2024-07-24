@@ -1,0 +1,293 @@
+@font-face{
+    font-family: 'fuenteGamer';
+    src: local('fuenteGamer'), url("{% static 'fonts/Abel-Regular.ttf' %}")format('opentype');
+    }
+    
+    body{
+    font-family: 'fuenteGamer';
+    background-color: #f4f4f4;
+    padding: 20px;
+    }
+    nav{
+        background: white;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        /* height: 50px; */
+        padding: 0 12px;
+        /* position: fixed; */
+        margin-bottom: 20px;
+        top: 0;
+        position: sticky;
+        border: 2px solid red;
+        border-radius: 10px;
+    }
+    .navbar-right ul, 
+    .navbar-left ul{
+        list-style: none;
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+        height: 30px;
+    }
+    .navbar-right{
+        display: flex;
+    }
+    .navbar-right ul{
+        margin-left: 12px;
+    }
+    .navbar-left ul li a,
+    .navbar-right ul li a{
+        text-decoration: none;
+        color: gray;
+        padding: 8px;
+        border-radius: 8px;
+    }
+    .navbar-right ul li a{
+        margin: 0 12px;
+    }
+    .navbar-left ul li a:hover,
+    .navbar-right ul li a:hover{
+        color: black;
+        border: 1px solid black;
+    }
+    .input{
+        height: 30px;
+        width: 170px;
+        border: 1px solid rgb(194, 194, 194);
+        color: rgb(194, 194, 194);
+        border-radius: 8px;
+    }
+    .input:hover{
+        border: 1px solid black;
+        color: black;
+        cursor: text;
+    }
+    header {
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+        background-color: #333;
+        color: #fff;
+        border-radius: 8px;
+        transition: background 0.3s;
+    }
+    header:hover {
+        background: #e63946;
+    }
+    .cards-container {
+        margin: 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+        gap: 26px;
+        justify-content: center;
+    }
+    .product-cards {
+        background: #2c2c2c;
+        border-radius: 20px;
+        overflow: hidden;
+        transition: background 0.3s, transform 0.3s;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .product-cards:hover {
+        background: #1c1c1c;
+        transform: translateY(-10px);
+    }
+    .product-cards img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+    }
+    .product-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 16px;
+    }
+    .product-info div {
+        margin-bottom: 10px;
+    }
+    .product-info div p {
+        color: whitesmoke;
+        font-size: 14px;
+        margin: 4px 0;
+    }
+    .product-info button {
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+        border: 1px solid #444;
+        background: #444;
+        cursor: pointer;
+        transition: background 0.3s, border-color 0.3s;
+    }
+    .product-info button:hover {
+        background: #333;
+        border-color: #333;
+    }
+    .product-info button img {
+        width: 20px;
+        height: 20px;
+    }
+    .cards-container a {
+        text-decoration: none;
+    }
+    .carrito {
+        height: 20px;
+        width: 30px;
+    }
+    .no-results {
+        text-align: center;
+        color: #333;
+        margin-top: 20px;
+    }
+    body {
+        background-color: #f4f4f4;
+        padding: 20px;
+    }
+    .main-a {
+        text-decoration: none;
+    }
+    .cards-container {
+        margin: 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+        gap: 26px;
+        place-content: center;
+    }
+    .product-cards {
+        background: #2c2c2c;
+        border-radius: 20px;
+        width: 100%;
+        transition: background 0.3s;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+    }
+    .product-cards:hover {
+        background: #1c1c1c;
+    }
+    .product-cards img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+    }
+    .product-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 16px;
+    }
+    .product-info div {
+        margin-bottom: 10px;
+    }
+    .product-info div p {
+        color: whitesmoke;
+        font-size: 14px;
+        margin: 4px 0;
+    }
+    .product-info button {
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+        border: 1px solid #444;
+        background: #444;
+        cursor: pointer;
+        transition: background 0.3s, border-color 0.3s;
+    }
+    .product-info button:hover {
+        background: #333;
+        border-color: #333;
+    }
+    .product-info button img {
+        width: 20px;
+        height: 20px;
+    }
+    .cards-container a {
+        text-decoration: none;
+    }
+    .carrito {
+        height: 20px;
+        width: 30px;
+    }
+    .no-results {
+        text-align: center;
+        color: #333;
+        margin-top: 20px;
+    }
+    header {
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+        background-color: #333;
+        color: #fff;
+        border-radius: 8px;
+        transition: 2s;
+    }
+    header:hover{
+        background: red;
+    }
+    .h2-container{
+        display:flex;
+        justify-content: center; 
+        align-items: center;
+        height: 50vh; 
+    }
+    .h2-container h2{
+        text-align: center;
+    }
+    .cards-container{
+        margin: 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 340px);
+        gap: 26px;
+        place-content: center;
+    }
+    .product-cards{
+        background: gray;
+        border-radius: 20px;
+        width: 340px;
+        transition: 2s;
+    }
+    .product-cards:hover{
+        background: black;
+    }
+    .product-cards img{
+        width: 340px;
+        height: 300px;
+        border-radius: 20px;
+    }
+    .product-info{
+        /* background: yellow; */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 12px;
+        margin-bottom: 12px;
+    }
+    .product-info button{
+        margin-right: 10px;
+        margin-bottom: 20px;
+        width: 40px;
+        height: 40px;
+        border-radius: 30px;
+        border: 1px solid;
+    }
+    .product-info button img{
+        width: 20px;
+        height: 20px;
+
+    }
+    .product-info div p{
+        color: whitesmoke;
+        font-size: 14px;
+        margin-top: 0;
+        margin-bottom: 4px;
+        margin-left: 10px;
+    }
+    .cards-container a{
+        text-decoration: none;
+    }
+    .carrito{
+        height: 20px;
+        width: 30px;
+    }

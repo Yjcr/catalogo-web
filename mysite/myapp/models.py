@@ -25,11 +25,29 @@ class Categorias(models.Model):
 
     def __str__(self):
         return self.nombrecategoria if self.nombrecategoria else "Sin nombre"
-
+    
     class Meta:
         managed = True
         db_table = "Categorias"
+        verbose_name_plural = "Categorias"
         db_table_comment = "Categorias de videojuegos"
+    
+class Plataformas(models.Model):
+    idplataforma = models.AutoField(
+        db_column="IDPlataforma", primary_key=True
+    )  # Field name made lowercase.
+    nombreplataforma = models.CharField(
+        db_column="NombrePlataforma", max_length=15, blank=True, null=True
+    )  # Field name made lowercase.
+
+    def __str__(self):
+        return self.nombreplataforma if self.nombreplataforma else "Sin nombre"
+
+    class Meta:
+        managed = True
+        db_table = "Plataformas"
+        verbose_name_plural = "Plataformas"
+        db_table_comment = "Plataformas de videojuegos"
 
 
 class Clientes(models.Model):
@@ -69,6 +87,7 @@ class Desarrolladoras(models.Model):
     class Meta:
         managed = True
         db_table = "Desarrolladoras"
+        verbose_name_plural = "Desarrolladoras"
         db_table_comment = "Tabla que almacenara las desarrolladoras que crearon sus respectivos juegos"
 
 
@@ -93,6 +112,7 @@ class Detallesfactura(models.Model):
     class Meta:
         managed = True
         db_table = "DetallesFactura"
+        verbose_name_plural = "DetallesFacturas"
         db_table_comment = "Detalles de la factura"
 
 
@@ -137,6 +157,7 @@ class Facturas(models.Model):
     class Meta:
         managed = True
         db_table = "Facturas"
+        verbose_name_plural = "Facturas"
         db_table_comment = "Tabla que almacenara los datos principales de las facturas"
 
 
@@ -157,6 +178,7 @@ class Favoritos(models.Model):
     class Meta:
         managed = True
         db_table = "Favoritos"
+        verbose_name_plural = "Favoritos"
         db_table_comment = (
             "Tabla que almacenara los juegos favoritos seleccionados por el usuario"
         )
@@ -188,6 +210,7 @@ class Pagos(models.Model):
     class Meta:
         managed = True
         db_table = "Pagos"
+        verbose_name_plural = "Pagos"
         db_table_comment = "Tabla que almacenara los pagos realizados por los clientes para generar factura y comprobar dicho pago"
 
 
@@ -215,6 +238,7 @@ class Promociones(models.Model):
     class Meta:
         managed = True
         db_table = "Promociones"
+        verbose_name_plural = "Promociones"
         db_table_comment = "Tabla que administrara las promociones disponibles para los respectivos videojuegos"
 
 
@@ -241,6 +265,7 @@ class Reseñas(models.Model):
     class Meta:
         managed = True
         db_table = "Reseñas"
+        verbose_name_plural = "Reseñas"
         db_table_comment = "Tabla que administrara las reseñas creadas por los usuarios (ya sea empleado o cliente)"
 
 
@@ -264,6 +289,7 @@ class Ubicaciones(models.Model):
     class Meta:
         managed = True
         db_table = "Ubicaciones"
+        verbose_name_plural = "Ubicaciones"
         db_table_comment = (
             "Tabla de ubicaciones que conecta con la direcciñn del cliente"
         )
@@ -330,6 +356,9 @@ class Videojuegos(models.Model):
     nombre = models.CharField(
         db_column="Nombre", max_length=30, blank=True, null=True
     )  # Field name made lowercase.
+    slug = models.SlugField(
+        db_column="Slug", unique=True, null=True
+    )
     lanzamiento = models.DateField(
         db_column="Lanzamiento", blank=True, null=True
     )  # Field name made lowercase.
@@ -339,8 +368,9 @@ class Videojuegos(models.Model):
     precio = models.DecimalField(
         max_digits=10, decimal_places=2, blank=True, null=True, db_column="Precio"
     )
-    plataforma = models.CharField(
-        db_column="Plataforma", max_length=30, blank=True, null=True
+    plataforma = models.ManyToManyField(
+       Plataformas,
+        db_column="IDPlataforma",
     )  # Field name made lowercase.
     imagenjuego = models.ImageField(
         upload_to="galeria", blank=True, null=True, db_column="ImagenJuego"
@@ -366,4 +396,5 @@ class Videojuegos(models.Model):
     class Meta:
         managed = True
         db_table = "Videojuegos"
+        verbose_name_plural = "Videojuegos"
         db_table_comment = "Tabla que almacenara todos los datos relacionados con los videojuegos disponibles e ingresados"

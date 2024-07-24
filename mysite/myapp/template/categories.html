@@ -1,97 +1,6 @@
 {% extends 'layout/base.html' %}
 {% load static %}
 {% block content %}
-<style>
-    /* @font-face{
-        font-family: 'fuenteGamer';
-        src: local('fuenteGamer'), url("{% static 'fonts/Abel-Regular.ttf' %}")format('opentype');
-    }
-        
-    body{
-        font-family: 'fuenteGamer';
-    } */
-    body {
-        background-color: #f4f4f4;
-        padding: 20px;
-    }
-    header {
-        width: 100%;
-        padding: 20px;
-        text-align: center;
-        background-color: #333;
-        color: #fff;
-        border-radius: 8px;
-        transition: 2s;
-    }
-    header:hover{
-        background: red;
-    }
-    .h2-container{
-        display:flex;
-        justify-content: center; 
-        align-items: center;
-        height: 50vh; 
-    }
-    .h2-container h2{
-        text-align: center;
-    }
-    .cards-container{
-        margin: 20px;
-        display: grid;
-        grid-template-columns: repeat(auto-fill, 340px);
-        gap: 26px;
-        place-content: center;
-    }
-    .product-cards{
-        background: gray;
-        border-radius: 20px;
-        width: 340px;
-        transition: 2s;
-    }
-    .product-cards:hover{
-        background: black;
-    }
-    .product-cards img{
-        width: 340px;
-        height: 300px;
-        border-radius: 20px;
-    }
-    .product-info{
-        /* background: yellow; */
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 12px;
-        margin-bottom: 12px;
-    }
-    .product-info button{
-        margin-right: 10px;
-        margin-bottom: 20px;
-        width: 40px;
-        height: 40px;
-        border-radius: 30px;
-        border: 1px solid;
-    }
-    .product-info button img{
-        width: 20px;
-        height: 20px;
-
-    }
-    .product-info div p{
-        color: whitesmoke;
-        font-size: 14px;
-        margin-top: 0;
-        margin-bottom: 4px;
-        margin-left: 10px;
-    }
-    .cards-container a{
-        text-decoration: none;
-    }
-    .carrito{
-        height: 20px;
-        width: 30px;
-    }
-</style>
 <section class="main-container">
     <div class="cards-container">
         {% for i in games %}
@@ -104,7 +13,7 @@
                             <p>{{i.precio}}$</p>
                         </div>
                         <button>
-                             <img src="{% static 'carritou.png' %}" alt="buy">
+                             <img src="{% static 'imagenes/carritou.png' %}" alt="buy">
                         </button>
                     </div>
                 </div>

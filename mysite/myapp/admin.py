@@ -1,9 +1,10 @@
 from django.contrib import admin
-from .models import Videojuegos, Categorias, Desarrolladoras, Usuarios, Empleados, Clientes, Pagos, Detallesfactura, Facturas, Favoritos, Promociones, Reseñas, Ubicaciones 
+from .models import Videojuegos, Plataformas, Categorias, Desarrolladoras, Usuarios, Empleados, Clientes, Pagos, Detallesfactura, Facturas, Favoritos, Promociones, Reseñas, Ubicaciones 
 
 # Register your models here.
 admin.site.register(Videojuegos)
 admin.site.register(Categorias)
+admin.site.register(Plataformas)
 admin.site.register(Desarrolladoras)
 admin.site.register(Usuarios)
 admin.site.register(Empleados)
